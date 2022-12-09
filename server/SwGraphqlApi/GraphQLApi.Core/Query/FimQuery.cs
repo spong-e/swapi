@@ -4,20 +4,28 @@ using GraphQLApi.Core.Services;
 namespace GraphQLApi.Core.Query;
 
 [ExtendObjectType(OperationTypeNames.Query)]
-public class ResourcesQuery
+public class FilmQuery
 {
 
     private ISwapiClient _swapiClient;
 
-    public ResourcesQuery(ISwapiClient swapiClient)
+    public FilmQuery(ISwapiClient swapiClient)
     {
         _swapiClient = swapiClient ?? throw new ArgumentNullException(nameof(swapiClient));
     }
 
-    public async Task<Resources?> GetRoot()
+    public async Task<Films?> GetFilms()
     {
         {
-            var root = await _swapiClient.GetResources();
+            var root = await _swapiClient.GetFilms();
+            return root ?? null;
+        }
+    }
+    
+    public async Task<Film?> GetFilm(int id)
+    {
+        {
+            var root = await _swapiClient.GetFilm(id);
             return root ?? null;
         }
     }

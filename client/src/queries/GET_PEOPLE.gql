@@ -1,0 +1,11 @@
+query getPeopleQuery {
+  people {
+    message
+    totalRecords
+    totalPages
+    results {
+      name
+      uid
+    }
+  }
+}

@@ -4,7 +4,12 @@ namespace GraphQLApi.Core.Services;
 
 public interface ISwapiClient
 {
-    Task<Resources?> GetResources();
 
-    Task<List<People>?> GetPeople(int page);
+
+    Task<People?> GetPeople(int page);
+
+    Task<Person?> GetPerson(int id);
+
+    Task<Films?> GetFilms();
+    Task<Film?> GetFilm(int id);
 }
